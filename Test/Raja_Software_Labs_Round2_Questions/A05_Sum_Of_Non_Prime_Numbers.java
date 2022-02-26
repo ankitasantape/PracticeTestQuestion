@@ -6,21 +6,28 @@ public class A05_Sum_Of_Non_Prime_Numbers {
 	public static void main(String[] args) {
 
 		int[] arr = {2,4,5,7,3};
+		
+        System.out.println( solution1(arr) );
+	}
+
+	private static int solution1(int[] arr) {
 		int sum = 0;
 		for(int i = 0; i < arr.length; i++) {
-			boolean isPrime = true;
-			for(int div = 2; div * div <= arr[i]; div++) {
-				if(arr[i] % div == 0) {
-					isPrime = false;
-					break;
-				}
-			}
+			boolean isPrime = isPrime(arr[i]);
 			if( !isPrime ) {
 				sum += arr[i];
 			}
 		}
-		System.out.println(sum);
-
+		return sum;
+	}
+	
+	public static boolean isPrime(int n) {
+		for(int div = 2; div * div <= n; div++) {
+			if(n % div == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

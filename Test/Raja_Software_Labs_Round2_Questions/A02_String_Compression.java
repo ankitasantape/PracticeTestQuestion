@@ -4,8 +4,10 @@ public class A02_String_Compression {
 
 	public static void main(String[] args) {
 		String str = "aaabbbbbccccdeeeefgggg"; // a3b5c4de4fg4
-		int count = 1;
+		
 		String ansstr = str.charAt(0) + "";
+		int count = 1;
+		// Time Complexity : O(N)
 		for(int i = 1; i < str.length(); i++) {
 			char currchar = str.charAt(i);
 			char prevchar = str.charAt(i - 1);
